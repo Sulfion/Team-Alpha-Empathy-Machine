@@ -11,6 +11,13 @@ TagManager:
   - OrangeCube
   - PurpleCube
   - BrownCube
+  - RedSource
+  - BlueSource
+  - YellowSource
+  - GreenSource
+  - OrangeSource
+  - PurpleSource
+  - BrownSource
   layers:
   - Default
   - TransparentFX

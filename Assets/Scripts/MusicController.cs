@@ -14,37 +14,61 @@ public class MusicController : MonoBehaviour
 
     public float audioDuration = 10.0f;
 
-    public bool redBool = false;
-    public bool blueBool = false;
-    public bool yellowBool = false;
-    public bool greenBool = false;
-    public bool orangeBool = false;
-    public bool purpleBool = false;
-    public bool brownBool = false;
+    public float timePlayed;
 
-    public bool redCheck = false;
-    public bool blueCheck = false;
-    public bool yellowCheck = false;
-    public bool greenCheck = false;
-    public bool orangeCheck = false;
-    public bool purpleCheck = false;
-    public bool brownCheck = false;
+    private bool redBool = false;
+    private bool blueBool = false;
+    private bool yellowBool = false;
+    private bool greenBool = false;
+    private bool orangeBool = false;
+    private bool purpleBool = false;
+    private bool brownBool = false;
+
+    private bool redCheck = false;
+    private bool blueCheck = false;
+    private bool yellowCheck = false;
+    private bool greenCheck = false;
+    private bool orangeCheck = false;
+    private bool purpleCheck = false;
+    private bool brownCheck = false;
+
+    private bool setAudioTimeOnce = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        musicLayerRed = GetComponent<AudioSource>();
-        musicLayerBlue = GetComponent<AudioSource>();
-        musicLayerYellow = GetComponent<AudioSource>();
-        musicLayerGreen = GetComponent<AudioSource>();
-        musicLayerOrange = GetComponent<AudioSource>();
-        musicLayerPurple = GetComponent<AudioSource>();
-        musicLayerBrown = GetComponent<AudioSource>();
+        musicLayerRed = GameObject.FindWithTag("RedSource").GetComponent<AudioSource>();
+        musicLayerBlue = GameObject.FindWithTag("BlueSource").GetComponent<AudioSource>();
+        musicLayerYellow = GameObject.FindWithTag("YellowSource").GetComponent<AudioSource>();
+        musicLayerGreen = GameObject.FindWithTag("GreenSource").GetComponent<AudioSource>();
+        musicLayerOrange = GameObject.FindWithTag("OrangeSource").GetComponent<AudioSource>();
+        musicLayerPurple = GameObject.FindWithTag("PurpleSource").GetComponent<AudioSource>();
+        musicLayerBrown = GameObject.FindWithTag("BrownSource").GetComponent<AudioSource>();
     }
 
     public void Update()
     {
-        //Debug.Log(redBool);
+        ElapsedMusicDuration();
+    }
+
+    //use the total time any part of the audio has played to sync all audio to that time
+    public void ElapsedMusicDuration()
+    {
+        if (redBool == true || blueBool == true || yellowBool == true || greenBool == true || orangeBool == true || purpleBool == true || brownBool == true)
+        {
+            if (setAudioTimeOnce == false)
+            {
+                setAudioTimeOnce = true;
+                musicLayerRed.time = timePlayed;
+                musicLayerBlue.time = timePlayed;
+                musicLayerYellow.time = timePlayed;
+                musicLayerGreen.time = timePlayed;
+                musicLayerOrange.time = timePlayed;
+                musicLayerPurple.time = timePlayed;
+                musicLayerBrown.time = timePlayed;
+            }
+            timePlayed += Time.deltaTime;
+        }
     }
 
     //when the player collids with a specific colour, play the audio for that colour
@@ -92,6 +116,7 @@ public class MusicController : MonoBehaviour
     {
         if (redCheck == true && redBool == false)
         {
+            setAudioTimeOnce = false;
             redBool = true;
             musicLayerRed.Play();
             yield return new WaitForSeconds(audioDuration);
@@ -101,6 +126,7 @@ public class MusicController : MonoBehaviour
         }
         if (blueCheck == true && blueBool == false)
         {
+            setAudioTimeOnce = false;
             blueBool = true;
             musicLayerBlue.Play();
             yield return new WaitForSeconds(audioDuration);
@@ -110,6 +136,7 @@ public class MusicController : MonoBehaviour
         }
         if (yellowCheck == true && yellowBool == false)
         {
+            setAudioTimeOnce = false;
             yellowBool = true;
             musicLayerYellow.Play();
             yield return new WaitForSeconds(audioDuration);
@@ -119,6 +146,7 @@ public class MusicController : MonoBehaviour
         }
         if (greenCheck == true && greenBool == false)
         {
+            setAudioTimeOnce = false;
             greenBool = true;
             musicLayerGreen.Play();
             yield return new WaitForSeconds(audioDuration);
@@ -128,6 +156,7 @@ public class MusicController : MonoBehaviour
         }
         if (orangeCheck == true && orangeBool == false)
         {
+            setAudioTimeOnce = false;
             orangeBool = true;
             musicLayerOrange.Play();
             yield return new WaitForSeconds(audioDuration);
@@ -137,6 +166,7 @@ public class MusicController : MonoBehaviour
         }
         if (purpleCheck == true && purpleBool == false)
         {
+            setAudioTimeOnce = false;
             purpleBool = true;
             musicLayerPurple.Play();
             yield return new WaitForSeconds(audioDuration);
@@ -146,6 +176,7 @@ public class MusicController : MonoBehaviour
         }
         if (brownCheck == true && brownBool == false)
         {
+            setAudioTimeOnce = false;
             brownBool = true;
             musicLayerBrown.Play();
             yield return new WaitForSeconds(audioDuration);
