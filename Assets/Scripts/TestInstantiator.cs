@@ -28,7 +28,7 @@ public class TestInstantiator : MonoBehaviour
             var currentSpawnLocation = spawnPoints[i].transform;
             SelectRandomCubePrefab();
             Instantiate(cubeToSpawn, currentSpawnLocation);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.07f);
         }
     }
 }
