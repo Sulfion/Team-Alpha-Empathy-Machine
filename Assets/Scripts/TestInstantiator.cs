@@ -15,12 +15,14 @@ public class TestInstantiator : MonoBehaviour
         StartCoroutine("SpawnProcedure");
     }
 
+    //choose random number, assign it to random gameobject from array
     public void SelectRandomCubePrefab()
     {
         int arrayNum = Random.Range(0, 7);
         cubeToSpawn = colouredCubes[arrayNum];
     }
 
+    //spawn random gameobjects using selectrandomcubeprefab method at spawnpoints
     public IEnumerator SpawnProcedure()
     {
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -28,7 +30,7 @@ public class TestInstantiator : MonoBehaviour
             var currentSpawnLocation = spawnPoints[i].transform;
             SelectRandomCubePrefab();
             Instantiate(cubeToSpawn, currentSpawnLocation);
-            yield return new WaitForSeconds(0.07f);
+            yield return new WaitForSeconds(0.03f);
         }
     }
 }

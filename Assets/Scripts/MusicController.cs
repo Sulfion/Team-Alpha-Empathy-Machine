@@ -24,13 +24,13 @@ public class MusicController : MonoBehaviour
     private bool purpleBool = false;
     private bool brownBool = false;
 
-    private bool redCheck = false;
-    private bool blueCheck = false;
-    private bool yellowCheck = false;
-    private bool greenCheck = false;
-    private bool orangeCheck = false;
-    private bool purpleCheck = false;
-    private bool brownCheck = false;
+    public bool redCheck = false;
+    public bool blueCheck = false;
+    public bool yellowCheck = false;
+    public bool greenCheck = false;
+    public bool orangeCheck = false;
+    public bool purpleCheck = false;
+    public bool brownCheck = false;
 
     private bool setAudioTimeOnce = false;
 
