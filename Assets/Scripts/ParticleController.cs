@@ -157,7 +157,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysRed[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysRed.Length; i++)
             {
                 particleSysRed[i].Play();
@@ -173,7 +173,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysBlue[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysBlue.Length; i++)
             {
                 particleSysBlue[i].Play();
@@ -189,7 +189,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysYellow[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysYellow.Length; i++)
             {
                 particleSysYellow[i].Play();
@@ -205,7 +205,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysGreen[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysGreen.Length; i++)
             {
                 particleSysGreen[i].Play();
@@ -221,7 +221,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysOrange[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysOrange.Length; i++)
             {
                 particleSysOrange[i].Play();
@@ -237,7 +237,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysPurple[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysPurple.Length; i++)
             {
                 particleSysPurple[i].Play();
@@ -253,7 +253,7 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysBrown[i].Stop();
             }
-            yield return new WaitForSeconds(musicController.audioDuration);
+            yield return musicController.audioDurationWait;
             for (int i = 0; i < particleSysBrown.Length; i++)
             {
                 particleSysBrown[i].Play();

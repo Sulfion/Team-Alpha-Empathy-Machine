@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class MusicController : MonoBehaviour
@@ -11,6 +12,9 @@ public class MusicController : MonoBehaviour
     public AudioSource musicLayerOrange;
     public AudioSource musicLayerPurple;
     public AudioSource musicLayerBrown;
+
+    [System.NonSerialized]
+    public WaitForSeconds audioDurationWait = new WaitForSeconds(15.0f);
 
     public float audioDuration = 15.0f;
 
@@ -24,13 +28,36 @@ public class MusicController : MonoBehaviour
     private bool purpleBool = false;
     private bool brownBool = false;
 
+    [System.NonSerialized]
     public bool redCheck = false;
+    [System.NonSerialized]
     public bool blueCheck = false;
+    [System.NonSerialized]
     public bool yellowCheck = false;
+    [System.NonSerialized]
     public bool greenCheck = false;
+    [System.NonSerialized]
     public bool orangeCheck = false;
+    [System.NonSerialized]
     public bool purpleCheck = false;
+    [System.NonSerialized]
     public bool brownCheck = false;
+
+    //create timers for wrist HUD tracker
+    [System.NonSerialized]
+    public float redTimer = 15.0f;
+    [System.NonSerialized]
+    public float blueTimer = 15.0f;
+    [System.NonSerialized]
+    public float yellowTimer = 15.0f;
+    [System.NonSerialized]
+    public float greenTimer = 15.0f;
+    [System.NonSerialized]
+    public float orangeTimer = 15.0f;
+    [System.NonSerialized]
+    public float purpleTimer = 15.0f;
+    [System.NonSerialized]
+    public float brownTimer = 15.0f;
 
     private bool setAudioTimeOnce = false;
 
@@ -49,6 +76,11 @@ public class MusicController : MonoBehaviour
     public void Update()
     {
         ElapsedMusicDuration();
+
+        Debug.Log(redTimer.ToString("f0") + " this is Red Timer");
+        Debug.Log(blueTimer.ToString("f0") + " this is Blue Timer");
+        Debug.Log(yellowTimer.ToString("f0") + " this is Yellow Timer");
+        Debug.Log(greenTimer.ToString("f0") + " this is Green Timer");
     }
 
     //use the total time any part of the audio has played to sync all audio to that time
@@ -67,7 +99,7 @@ public class MusicController : MonoBehaviour
                 musicLayerPurple.time = timePlayed;
                 musicLayerBrown.time = timePlayed;
             }
-            timePlayed += Time.deltaTime;
+            timePlayed += Time.deltaTime; //keep track of how long a colour has played for
         }
     }
 
@@ -111,81 +143,155 @@ public class MusicController : MonoBehaviour
         }
     }
 
+    //timers passed to wristHUD to track remaining audio duration
+    public IEnumerator MyTimers()
+    {
+        while (redCheck == true)
+        {
+            redTimer -= Time.deltaTime;
+            if (redTimer <= 0)
+            {
+                redTimer = 15.0f;
+            }
+            yield return null;
+        }
+        while (blueCheck == true)
+        {
+            blueTimer -= Time.deltaTime;
+            if (blueTimer <= 0)
+            {
+                blueTimer = 15.0f;
+            }
+            yield return null;
+        }
+        while (yellowCheck == true)
+        {
+            yellowTimer -= Time.deltaTime;
+            if (yellowTimer <= 0)
+            {
+                yellowTimer = 15.0f;
+            }
+            yield return null;
+        }
+        while (greenCheck == true)
+        {
+            greenTimer -= Time.deltaTime;
+            if (greenTimer <= 0)
+            {
+                greenTimer = 15.0f;
+            }
+            yield return null;
+        }
+        while (orangeCheck == true)
+        {
+            orangeTimer -= Time.deltaTime;
+            if (orangeTimer <= 0)
+            {
+                orangeTimer = 15.0f;
+            }
+            yield return null;
+        }
+        while (purpleCheck == true)
+        {
+            purpleTimer -= Time.deltaTime;
+            if (purpleTimer <= 0)
+            {
+                purpleTimer = 15.0f;
+            }
+            yield return null;
+        }
+        while (brownCheck == true)
+        {
+            brownTimer -= Time.deltaTime;
+            if (brownTimer <= 0)
+            {
+                brownTimer = 15.0f;
+            }
+            yield return null;
+        }
+    }
+
     //stop the same audio from playing multiple times, control the how long each audio clip will play, and play the audio
     private IEnumerator StartStopPlayingAudio()
     {
         if (redCheck == true && redBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             redBool = true;
             musicLayerRed.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerRed.Stop();
             redCheck = false;
             redBool = false;
         }
         if (blueCheck == true && blueBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             blueBool = true;
             musicLayerBlue.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerBlue.Stop();
             blueCheck = false;
             blueBool = false;
         }
         if (yellowCheck == true && yellowBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             yellowBool = true;
             musicLayerYellow.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerYellow.Stop();
             yellowCheck = false;
             yellowBool = false;
         }
         if (greenCheck == true && greenBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             greenBool = true;
             musicLayerGreen.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerGreen.Stop();
             greenCheck = false;
             greenBool = false;
         }
         if (orangeCheck == true && orangeBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             orangeBool = true;
             musicLayerOrange.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerOrange.Stop();
             orangeCheck = false;
             orangeBool = false;
         }
         if (purpleCheck == true && purpleBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             purpleBool = true;
             musicLayerPurple.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerPurple.Stop();
             purpleCheck = false;
             purpleBool = false;
         }
         if (brownCheck == true && brownBool == false)
         {
+            StartCoroutine(MyTimers());
             setAudioTimeOnce = false;
             brownBool = true;
             musicLayerBrown.Play();
-            yield return new WaitForSeconds(audioDuration);
+            yield return audioDurationWait;
             musicLayerBrown.Stop();
             brownCheck = false;
             brownBool = false;
         }
     }
-
     //this can be used to play all audio sources on same gameobject with:
     //Audiosource.PlayOneShot();
 }
