@@ -18,6 +18,7 @@ TagManager:
   - OrangeSource
   - PurpleSource
   - BrownSource
+  - RedParticle
   layers:
   - Default
   - TransparentFX
