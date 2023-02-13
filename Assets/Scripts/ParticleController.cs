@@ -61,32 +61,31 @@ public class ParticleController : MonoBehaviour
     {
         for (int i = 0; i < redCubeObjects.Length; i++)
         {
-            particleSysRed[i] = redCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
-            //particleSysRed[i] = redCubeObjects[i].GetComponentInChildren<ParticleSystem>();
+            particleSysRed[i] = redCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
         for (int i = 0; i < blueCubeObjects.Length; i++)
         {
-            particleSysBlue[i] = blueCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
+            particleSysBlue[i] = blueCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
         for (int i = 0; i < yellowCubeObjects.Length; i++)
         {
-            particleSysYellow[i] = yellowCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
+            particleSysYellow[i] = yellowCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
         for (int i = 0; i < greenCubeObjects.Length; i++)
         {
-            particleSysGreen[i] = greenCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
+            particleSysGreen[i] = greenCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
         for (int i = 0; i < orangeCubeObjects.Length; i++)
         {
-            particleSysOrange[i] = orangeCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
+            particleSysOrange[i] = orangeCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
         for (int i = 0; i < purpleCubeObjects.Length; i++)
         {
-            particleSysPurple[i] = purpleCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
+            particleSysPurple[i] = purpleCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
         for (int i = 0; i < brownCubeObjects.Length; i++)
         {
-            particleSysBrown[i] = brownCubeObjects[i].transform.GetChild(1).GetComponent<ParticleSystem>();
+            particleSysBrown[i] = brownCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
     }
 
@@ -99,57 +98,58 @@ public class ParticleController : MonoBehaviour
             {
                 foreach (GameObject gameObjects in redCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopRedParticles());
                 }
             }
             if (this.gameObject.tag == "BlueCube")
             {
                 foreach (GameObject gameObjects in blueCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopBlueParticles());
                 }
             }
             if (this.gameObject.tag == "YellowCube")
             {
                 foreach (GameObject gameObjects in yellowCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopYellowParticles());
                 }
             }
             if (this.gameObject.tag == "GreenCube")
             {
                 foreach (GameObject gameObjects in greenCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopGreenParticles());
                 }
             }
             if (this.gameObject.tag == "OrangeCube")
             {
                 foreach (GameObject gameObjects in orangeCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopOrangeParticles());
                 }
             }
             if (this.gameObject.tag == "PurpleCube")
             {
                 foreach (GameObject gameObjects in purpleCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopPurpleParticles());
                 }
             }
             if (this.gameObject.tag == "BrownCube")
             {
                 foreach (GameObject gameObjects in brownCubeObjects)
                 {
-                    StartCoroutine(StartStopParticles());
+                    StartCoroutine(StartStopBrownParticles());
                 }
             }
         }
     }
 
 
-    //stop all particle systems for a specific colour for 10 seconds, then play them again
-    public IEnumerator StartStopParticles()
+    //the following seven coroutines stop/restart the assigned colours particles
+    //they are divided separately as having them all together led to erroneous behavior
+    public IEnumerator StartStopRedParticles()
     {
         if (musicController.redCheck == true)
         {
@@ -157,79 +157,103 @@ public class ParticleController : MonoBehaviour
             {
                 particleSysRed[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysRed.Length; i++)
             {
                 particleSysRed[i].Play();
             }
         }
+    }
+
+    public IEnumerator StartStopBlueParticles()
+    {
         if (musicController.blueCheck == true)
         {
             for (int i = 0; i < particleSysBlue.Length; i++)
             {
                 particleSysBlue[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysBlue.Length; i++)
             {
                 particleSysBlue[i].Play();
             }
         }
+    }
+
+    public IEnumerator StartStopYellowParticles()
+    {
         if (musicController.yellowCheck == true)
         {
             for (int i = 0; i < particleSysYellow.Length; i++)
             {
                 particleSysYellow[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysYellow.Length; i++)
             {
                 particleSysYellow[i].Play();
             }
         }
+    }
+
+    public IEnumerator StartStopGreenParticles()
+    {
         if (musicController.greenCheck == true)
         {
             for (int i = 0; i < particleSysGreen.Length; i++)
             {
                 particleSysGreen[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysGreen.Length; i++)
             {
                 particleSysGreen[i].Play();
             }
         }
+    }
+
+    public IEnumerator StartStopOrangeParticles()
+    {
         if (musicController.orangeCheck == true)
         {
             for (int i = 0; i < particleSysOrange.Length; i++)
             {
                 particleSysOrange[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysOrange.Length; i++)
             {
                 particleSysOrange[i].Play();
             }
         }
+    }
+
+    public IEnumerator StartStopPurpleParticles()
+    {
         if (musicController.purpleCheck == true)
         {
             for (int i = 0; i < particleSysPurple.Length; i++)
             {
                 particleSysPurple[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysPurple.Length; i++)
             {
                 particleSysPurple[i].Play();
             }
         }
+    }
+
+    public IEnumerator StartStopBrownParticles()
+    {
         if (musicController.brownCheck == true)
         {
             for (int i = 0; i < particleSysBrown.Length; i++)
             {
                 particleSysBrown[i].Stop();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(musicController.audioDuration);
             for (int i = 0; i < particleSysBrown.Length; i++)
             {
                 particleSysBrown[i].Play();

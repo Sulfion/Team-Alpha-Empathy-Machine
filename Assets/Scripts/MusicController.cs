@@ -12,7 +12,7 @@ public class MusicController : MonoBehaviour
     public AudioSource musicLayerPurple;
     public AudioSource musicLayerBrown;
 
-    public float audioDuration = 10.0f;
+    public float audioDuration = 15.0f;
 
     public float timePlayed;
 

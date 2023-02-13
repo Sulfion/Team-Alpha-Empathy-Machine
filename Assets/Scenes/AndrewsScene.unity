@@ -7752,7 +7752,7 @@ MonoBehaviour:
   musicLayerOrange: {fileID: 96331527}
   musicLayerPurple: {fileID: 1312687851}
   musicLayerBrown: {fileID: 908738093}
-  audioDuration: 10
+  audioDuration: 15
   timePlayed: 0
   redCheck: 0
   blueCheck: 0

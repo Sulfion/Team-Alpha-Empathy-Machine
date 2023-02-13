@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2847863350487513405}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4924,9 +4924,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd816f60fd9ca324c9b20b50aa31c18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSys: {fileID: 2112072075237287001}
   musicController: {fileID: 0}
-  redParticles: {fileID: 0}
+  redCubeObjects: []
+  blueCubeObjects: []
+  yellowCubeObjects: []
+  greenCubeObjects: []
+  orangeCubeObjects: []
+  purpleCubeObjects: []
+  brownCubeObjects: []
+  particleSysRed: []
+  particleSysBlue: []
+  particleSysYellow: []
+  particleSysGreen: []
+  particleSysOrange: []
+  particleSysPurple: []
+  particleSysBrown: []
 --- !u!1 &6854325788906808828
 GameObject:
   m_ObjectHideFlags: 0
