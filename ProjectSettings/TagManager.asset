@@ -10,15 +10,19 @@ TagManager:
   - GreenCube
   - OrangeCube
   - PurpleCube
-  - BrownCube
   - RedSource
   - BlueSource
   - YellowSource
   - GreenSource
   - OrangeSource
   - PurpleSource
-  - BrownSource
   - RedParticle
+  - RedTimer
+  - BlueTimer
+  - YellowTimer
+  - GreenTimer
+  - OrangeTimer
+  - PurpleTimer
   layers:
   - Default
   - TransparentFX

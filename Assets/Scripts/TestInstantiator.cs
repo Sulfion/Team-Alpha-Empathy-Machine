@@ -18,7 +18,7 @@ public class TestInstantiator : MonoBehaviour
     //choose random number, assign it to random gameobject from array
     public void SelectRandomCubePrefab()
     {
-        int arrayNum = Random.Range(0, 7);
+        int arrayNum = Random.Range(0, 6);
         cubeToSpawn = colouredCubes[arrayNum];
     }
 

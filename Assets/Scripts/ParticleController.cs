@@ -13,7 +13,6 @@ public class ParticleController : MonoBehaviour
     public GameObject[] greenCubeObjects;
     public GameObject[] orangeCubeObjects;
     public GameObject[] purpleCubeObjects;
-    public GameObject[] brownCubeObjects;
 
     public ParticleSystem[] particleSysRed;
     public ParticleSystem[] particleSysBlue;
@@ -21,7 +20,6 @@ public class ParticleController : MonoBehaviour
     public ParticleSystem[] particleSysGreen;
     public ParticleSystem[] particleSysOrange;
     public ParticleSystem[] particleSysPurple;
-    public ParticleSystem[] particleSysBrown;
 
 
     // Start is called before the first frame update
@@ -43,7 +41,6 @@ public class ParticleController : MonoBehaviour
         greenCubeObjects = GameObject.FindGameObjectsWithTag("GreenCube");
         orangeCubeObjects = GameObject.FindGameObjectsWithTag("OrangeCube");
         purpleCubeObjects = GameObject.FindGameObjectsWithTag("PurpleCube");
-        brownCubeObjects = GameObject.FindGameObjectsWithTag("BrownCube");
 
         particleSysRed = new ParticleSystem[redCubeObjects.Length];
         particleSysBlue = new ParticleSystem[blueCubeObjects.Length];
@@ -51,7 +48,6 @@ public class ParticleController : MonoBehaviour
         particleSysGreen = new ParticleSystem[greenCubeObjects.Length];
         particleSysOrange = new ParticleSystem[orangeCubeObjects.Length];
         particleSysPurple = new ParticleSystem[purpleCubeObjects.Length];
-        particleSysBrown = new ParticleSystem[brownCubeObjects.Length];
 
         GetParticleSystems();
     }
@@ -82,10 +78,6 @@ public class ParticleController : MonoBehaviour
         for (int i = 0; i < purpleCubeObjects.Length; i++)
         {
             particleSysPurple[i] = purpleCubeObjects[i].GetComponentInChildren<ParticleSystem>();
-        }
-        for (int i = 0; i < brownCubeObjects.Length; i++)
-        {
-            particleSysBrown[i] = brownCubeObjects[i].GetComponentInChildren<ParticleSystem>();
         }
     }
 
@@ -134,13 +126,6 @@ public class ParticleController : MonoBehaviour
                 foreach (GameObject gameObjects in purpleCubeObjects)
                 {
                     StartCoroutine(StartStopPurpleParticles());
-                }
-            }
-            if (this.gameObject.tag == "BrownCube")
-            {
-                foreach (GameObject gameObjects in brownCubeObjects)
-                {
-                    StartCoroutine(StartStopBrownParticles());
                 }
             }
         }
@@ -241,22 +226,6 @@ public class ParticleController : MonoBehaviour
             for (int i = 0; i < particleSysPurple.Length; i++)
             {
                 particleSysPurple[i].Play();
-            }
-        }
-    }
-
-    public IEnumerator StartStopBrownParticles()
-    {
-        if (musicController.brownCheck == true)
-        {
-            for (int i = 0; i < particleSysBrown.Length; i++)
-            {
-                particleSysBrown[i].Stop();
-            }
-            yield return musicController.audioDurationWait;
-            for (int i = 0; i < particleSysBrown.Length; i++)
-            {
-                particleSysBrown[i].Play();
             }
         }
     }
