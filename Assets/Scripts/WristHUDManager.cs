@@ -8,7 +8,6 @@ public class WristHUDManager : MonoBehaviour
 
     public TextMeshProUGUI _text;
 
-    public GameObject redTimeManager;
     //public TimerManager timerManager;
 
     // Start is called before the first frame update

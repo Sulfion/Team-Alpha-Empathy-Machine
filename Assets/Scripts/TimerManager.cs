@@ -7,17 +7,17 @@ using UnityEngine;
 public class TimerManager : MonoBehaviour
 {
     [System.NonSerialized]
-    public int redSecondsLeft;
+    public float redSecondsLeft;
     [System.NonSerialized]
-    public int blueSecondsLeft;
+    public float blueSecondsLeft;
     [System.NonSerialized]
-    public int yellowSecondsLeft;
+    public float yellowSecondsLeft;
     [System.NonSerialized]
-    public int greenSecondsLeft;
+    public float greenSecondsLeft;
     [System.NonSerialized]
-    public int orangeSecondsLeft;
+    public float orangeSecondsLeft;
     [System.NonSerialized]
-    public int purpleSecondsLeft;
+    public float purpleSecondsLeft;
 
     //each coroutine has a unique ID and must be stored in order to be stopped
     private Coroutine redTimerRoutine;
@@ -30,7 +30,7 @@ public class TimerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(redSecondsLeft.ToString("f0") + " this is TimerManager red timer");
+        //Debug.Log(redSecondsLeft.ToString("f0") + " this is TimerManager red timer");
     }
 
     //check if another routine for the colour has been started

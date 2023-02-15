@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class MusicController : MonoBehaviour
 {
@@ -15,15 +17,9 @@ public class MusicController : MonoBehaviour
     [System.NonSerialized]
     public WaitForSeconds audioDurationWait = new WaitForSeconds(15.0f);
 
-    public float timePlayed;
+    public float longestTimePlayed;
 
-    //private bool redBool = false;
-    //private bool blueBool = false;
-    //private bool yellowBool = false;
-    //private bool greenBool = false;
-    //private bool orangeBool = false;
-    //private bool purpleBool = false;
-
+    //these checks are passed to particle controller
     [System.NonSerialized]
     public bool redCheck = false;
     [System.NonSerialized]
@@ -37,8 +33,6 @@ public class MusicController : MonoBehaviour
     [System.NonSerialized]
     public bool purpleCheck = false;
 
-    //private bool setAudioTimeOnce = false;
-
     private Coroutine redAudioRoutine;
     private Coroutine blueAudioRoutine;
     private Coroutine yellowAudioRoutine;
@@ -46,9 +40,35 @@ public class MusicController : MonoBehaviour
     private Coroutine orangeAudioRoutine;
     private Coroutine purpleAudioRoutine;
 
+    private Coroutine redTimerRoutine;
+    private Coroutine blueTimerRoutine;
+    private Coroutine yellowTimerRoutine;
+    private Coroutine greenTimerRoutine;
+    private Coroutine orangeTimerRoutine;
+    private Coroutine purpleTimerRoutine;
+
+    private float[] timeComparisonArray;
+    private float greatestValue;
+
+    private float redTotalTime = 0f;
+    private float blueTotalTime = 0f;
+    private float yellowTotalTime = 0f;
+    private float greenTotalTime = 0f;
+    private float orangeTotalTime = 0f;
+    private float purpleTotalTime = 0f;
+
+    private bool redTimerControl = false;
+    private bool blueTimerControl = false;
+    private bool yellowTimerControl = false;
+    private bool greenTimerControl = false;
+    private bool orangeTimerControl = false;
+    private bool purpleTimerControl = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        timeComparisonArray = new float[6];
         musicLayerRed = GameObject.FindWithTag("RedSource").GetComponent<AudioSource>();
         musicLayerBlue = GameObject.FindWithTag("BlueSource").GetComponent<AudioSource>();
         musicLayerYellow = GameObject.FindWithTag("YellowSource").GetComponent<AudioSource>();
@@ -59,218 +79,226 @@ public class MusicController : MonoBehaviour
 
     public void Update()
     {
-        //ElapsedMusicDuration();
+        CheckTimesFindGreatest();
     }
 
+    public void CheckTimesFindGreatest()
+    {
+        timeComparisonArray.SetValue(value: redTotalTime, index: 0);
+        timeComparisonArray.SetValue(value: blueTotalTime, index: 1);
+        timeComparisonArray.SetValue(value: yellowTotalTime, index: 2);
+        timeComparisonArray.SetValue(value: greenTotalTime, index: 3);
+        timeComparisonArray.SetValue(value: orangeTotalTime, index: 4);
+        timeComparisonArray.SetValue(value: purpleTotalTime, index: 5);
+
+        greatestValue = Mathf.Max(timeComparisonArray);
+    }
+
+    //start & stop a coroutine for each colour, it manages audio and an individual timer
+    //also sync all audio to the longest a colour has played
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("RedCube"))
         {
+            musicLayerRed.time = greatestValue; //sync the audio using most played sound
             if (redAudioRoutine != null)
             {
                 StopCoroutine(redAudioRoutine);
             }
             redAudioRoutine = StartCoroutine(RedStartStopAudio());
+            if (redTimerRoutine != null)
+            {
+                StopCoroutine(redTimerRoutine);
+            }
+            redTimerRoutine = StartCoroutine(RedTimer());
         }
         if (collision.gameObject.CompareTag("BlueCube"))
         {
+            musicLayerBlue.time = greatestValue;
             if (blueAudioRoutine != null)
             {
                 StopCoroutine(blueAudioRoutine);
             }
             blueAudioRoutine = StartCoroutine(BlueStartStopAudio());
+            if (blueTimerRoutine != null)
+            {
+                StopCoroutine(blueTimerRoutine);
+            }
+            blueTimerRoutine = StartCoroutine(BlueTimer());
         }
         if (collision.gameObject.CompareTag("YellowCube"))
         {
+            musicLayerYellow.time = greatestValue;
             if (yellowAudioRoutine != null)
             {
                 StopCoroutine(yellowAudioRoutine);
             }
             yellowAudioRoutine = StartCoroutine(YellowStartStopAudio());
+            if (yellowTimerRoutine != null)
+            {
+                StopCoroutine(yellowTimerRoutine);
+            }
+            yellowTimerRoutine = StartCoroutine(YellowTimer());
         }
         if (collision.gameObject.CompareTag("GreenCube"))
         {
+            musicLayerGreen.time = greatestValue;
             if (greenAudioRoutine != null)
             {
                 StopCoroutine(greenAudioRoutine);
             }
             greenAudioRoutine = StartCoroutine(GreenStartStopAudio());
+            if (greenTimerRoutine != null)
+            {
+                StopCoroutine(greenTimerRoutine);
+            }
+            greenTimerRoutine = StartCoroutine(GreenTimer());
         }
         if (collision.gameObject.CompareTag("OrangeCube"))
         {
+            musicLayerOrange.time = greatestValue;
             if (orangeAudioRoutine != null)
             {
                 StopCoroutine(orangeAudioRoutine);
             }
             orangeAudioRoutine = StartCoroutine(OrangeStartStopAudio());
+            if (orangeTimerRoutine != null)
+            {
+                StopCoroutine(orangeTimerRoutine);
+            }
+            orangeTimerRoutine = StartCoroutine(OrangeTimer());
         }
         if (collision.gameObject.CompareTag("PurpleCube"))
         {
+            musicLayerPurple.time = greatestValue;
             if (purpleAudioRoutine != null)
             {
                 StopCoroutine(purpleAudioRoutine);
             }
             purpleAudioRoutine = StartCoroutine(PurpleStartStopAudio());
+            if (purpleTimerRoutine != null)
+            {
+                StopCoroutine(purpleTimerRoutine);
+            }
+            purpleTimerRoutine = StartCoroutine(PurpleTimer());
         }
     }
 
+    //these coroutines manage how long the audio plays for
+    //they also control when the timers start and stop
+    //example: if a player touches a red tile once, then again after 5 seconds, the timer will
+    //count for a total of 20 seconds (15+5)
     private IEnumerator RedStartStopAudio()
     {
+        redCheck = true;
+        redTimerControl = true;
         musicLayerRed.Play();
         yield return audioDurationWait;
+        redCheck = false;
+        redTimerControl = false;
         musicLayerRed.Stop();
     }
     private IEnumerator BlueStartStopAudio()
     {
+        blueCheck = true;
+        blueTimerControl = true;
         musicLayerBlue.Play();
         yield return audioDurationWait;
+        blueCheck = false;
+        blueTimerControl = true;
         musicLayerBlue.Stop();
     }
     private IEnumerator YellowStartStopAudio()
     {
+        yellowCheck = true;
+        yellowTimerControl = true;
         musicLayerYellow.Play();
         yield return audioDurationWait;
+        yellowCheck = false;
+        yellowTimerControl = false;
         musicLayerYellow.Stop();
     }
     private IEnumerator GreenStartStopAudio()
     {
+        greenCheck = true;
+        greenTimerControl = true;
         musicLayerGreen.Play();
         yield return audioDurationWait;
+        greenCheck = false;
+        greenTimerControl = false;
         musicLayerGreen.Stop();
     }
     private IEnumerator OrangeStartStopAudio()
     {
+        orangeCheck = true;
+        orangeTimerControl = true;
         musicLayerOrange.Play();
         yield return audioDurationWait;
+        orangeCheck = false;
+        orangeTimerControl = false;
         musicLayerOrange.Stop();
     }
     private IEnumerator PurpleStartStopAudio()
     {
+        purpleCheck = true;
+        purpleTimerControl = true;
         musicLayerPurple.Play();
         yield return audioDurationWait;
+        purpleCheck = false;
+        purpleTimerControl = false;
         musicLayerPurple.Stop();
     }
 
-    ////when the player collids with a specific colour, play the audio for that colour
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("RedCube"))
-    //    {
-    //        redCheck = true;
-    //        StartCoroutine(StartStopPlayingAudio());
-    //    }
-    //    if (collision.gameObject.CompareTag("BlueCube"))
-    //    {
-    //        blueCheck = true;
-    //        StartCoroutine(StartStopPlayingAudio());
-    //    }
-    //    if (collision.gameObject.CompareTag("YellowCube"))
-    //    {
-    //        yellowCheck = true;
-    //        StartCoroutine(StartStopPlayingAudio());
-    //    }
-    //    if (collision.gameObject.CompareTag("GreenCube"))
-    //    {
-    //        greenCheck = true;
-    //        StartCoroutine(StartStopPlayingAudio());
-    //    }
-    //    if (collision.gameObject.CompareTag("OrangeCube"))
-    //    {
-    //        orangeCheck = true;
-    //        StartCoroutine(StartStopPlayingAudio());
-    //    }
-    //    if (collision.gameObject.CompareTag("PurpleCube"))
-    //    {
-    //        purpleCheck = true;
-    //        StartCoroutine(StartStopPlayingAudio());
-    //    }
-    //}
+    //the following are seven timers used to track total duration audio has played for, for each colour tile
+    public IEnumerator RedTimer()
+    {
+        while (redTimerControl == true)
+        {
+            yield return new WaitForSeconds(1);
+            redTotalTime++;
+        }
+    }
+    public IEnumerator BlueTimer()
+    {
+        while (blueTimerControl == true)
+        {
+            yield return new WaitForSeconds(1);
+            blueTotalTime++;
+        }
+    }
+    public IEnumerator YellowTimer()
+    {
+        while (yellowTimerControl == true)
+        {
+            yield return new WaitForSeconds(1);
+            yellowTotalTime++;
+        }
+    }
+    public IEnumerator GreenTimer()
+    {
+        while (greenTimerControl == true)
+        {
+            yield return new WaitForSeconds(1);
+            greenTotalTime++;
+        }
+    }
+    public IEnumerator OrangeTimer()
+    {
+        while (orangeTimerControl == true)
+        {
+            yield return new WaitForSeconds(1);
+            orangeTotalTime++;
+        }
+    }
+    public IEnumerator PurpleTimer()
+    {
+        while (purpleTimerControl == true)
+        {
+            yield return new WaitForSeconds(1);
+            purpleTotalTime++;
+        }
+    }
 
-    ////stop the same audio from playing multiple times, control the how long each audio clip will play, and play the audio
-    //private IEnumerator StartStopPlayingAudio()
-    //{
-    //    setAudioTimeOnce = false;
-    //    if (redCheck == true && redBool == false)
-    //    {
-    //        setAudioTimeOnce = false;
-    //        redBool = true;
-    //        musicLayerRed.Play();
-    //        yield return audioDurationWait;
-    //        musicLayerRed.Stop();
-    //        redCheck = false;
-    //        redBool = false;
-    //    }
-    //    if (blueCheck == true && blueBool == false)
-    //    {
-    //        setAudioTimeOnce = false;
-    //        blueBool = true;
-    //        musicLayerBlue.Play();
-    //        yield return audioDurationWait;
-    //        musicLayerBlue.Stop();
-    //        blueCheck = false;
-    //        blueBool = false;
-    //    }
-    //    if (yellowCheck == true && yellowBool == false)
-    //    {
-    //        setAudioTimeOnce = false;
-    //        yellowBool = true;
-    //        musicLayerYellow.Play();
-    //        yield return audioDurationWait;
-    //        musicLayerYellow.Stop();
-    //        yellowCheck = false;
-    //        yellowBool = false;
-    //    }
-    //    if (greenCheck == true && greenBool == false)
-    //    {
-    //        setAudioTimeOnce = false;
-    //        greenBool = true;
-    //        musicLayerGreen.Play();
-    //        yield return audioDurationWait;
-    //        musicLayerGreen.Stop();
-    //        greenCheck = false;
-    //        greenBool = false;
-    //    }
-    //    if (orangeCheck == true && orangeBool == false)
-    //    {
-    //        setAudioTimeOnce = false;
-    //        orangeBool = true;
-    //        musicLayerOrange.Play();
-    //        yield return audioDurationWait;
-    //        musicLayerOrange.Stop();
-    //        orangeCheck = false;
-    //        orangeBool = false;
-    //    }
-    //    if (purpleCheck == true && purpleBool == false)
-    //    {
-    //        setAudioTimeOnce = false;
-    //        purpleBool = true;
-    //        musicLayerPurple.Play();
-    //        yield return audioDurationWait;
-    //        musicLayerPurple.Stop();
-    //        purpleCheck = false;
-    //        purpleBool = false;
-    //    }
-    //}
-    ////this can be used to play all audio sources on same gameobject:
-    ////Audiosource.PlayOneShot();
-
-
-    ////use the total time any part of the audio has played to sync all audio to that time
-    //public void ElapsedMusicDuration()
-    //{
-    //    if (redBool == true || blueBool == true || yellowBool == true || greenBool == true || orangeBool == true || purpleBool == true)
-    //    {
-    //        if (setAudioTimeOnce == false)
-    //        {
-    //            setAudioTimeOnce = true;
-    //            musicLayerRed.time = timePlayed;
-    //            musicLayerBlue.time = timePlayed;
-    //            musicLayerYellow.time = timePlayed;
-    //            musicLayerGreen.time = timePlayed;
-    //            musicLayerOrange.time = timePlayed;
-    //            musicLayerPurple.time = timePlayed;
-    //        }
-    //        timePlayed += Time.deltaTime; //keep track of how long a colour has played for
-    //    }
-    //}
+    //this can be used to play all audio sources on same gameobject:
+    //Audiosource.PlayOneShot();
 }
