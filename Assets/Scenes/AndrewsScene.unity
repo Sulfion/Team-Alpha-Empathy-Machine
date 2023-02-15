@@ -783,7 +783,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134684643
 GameObject:
@@ -894,6 +894,7 @@ GameObject:
   - component: {fileID: 141291651}
   - component: {fileID: 141291650}
   - component: {fileID: 141291649}
+  - component: {fileID: 141291652}
   m_Layer: 5
   m_Name: BlueCubeTimer
   m_TagString: BlueTimer
@@ -933,7 +934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fbacadb7cd56c4c987dbca6c4783ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  _text: {fileID: 0}
+  redTimeManager: {fileID: 0}
+  timerManager: {fileID: 0}
 --- !u!114 &141291650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1034,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141291647}
   m_CullTransparentMesh: 1
+--- !u!114 &141291652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141291647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &172975589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1208,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &207883837
 GameObject:
@@ -2199,7 +2214,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &387522189
 GameObject:
@@ -4272,6 +4287,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669800065}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &672228864
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6854325788483292309, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_Name
+      value: RedCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854325788483292313, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c54ec9cc82e98346b1820717318e489, type: 3}
 --- !u!1 &679631111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,6 +4683,7 @@ GameObject:
   - component: {fileID: 703085709}
   - component: {fileID: 703085708}
   - component: {fileID: 703085707}
+  - component: {fileID: 703085710}
   m_Layer: 5
   m_Name: GreenCubeTimer
   m_TagString: GreenTimer
@@ -4650,7 +4723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fbacadb7cd56c4c987dbca6c4783ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  _text: {fileID: 0}
+  redTimeManager: {fileID: 0}
+  timerManager: {fileID: 0}
 --- !u!114 &703085708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4748,6 +4823,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703085705}
   m_CullTransparentMesh: 1
+--- !u!114 &703085710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703085705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &718999594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +4847,7 @@ GameObject:
   - component: {fileID: 718999598}
   - component: {fileID: 718999597}
   - component: {fileID: 718999596}
+  - component: {fileID: 718999599}
   m_Layer: 5
   m_Name: YellowCubeTimer
   m_TagString: YellowTimer
@@ -4799,7 +4887,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fbacadb7cd56c4c987dbca6c4783ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  _text: {fileID: 0}
+  redTimeManager: {fileID: 0}
+  timerManager: {fileID: 0}
 --- !u!114 &718999597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4897,6 +4987,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718999594}
   m_CullTransparentMesh: 1
+--- !u!114 &718999599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718999594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &738985042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,7 +5109,7 @@ Transform:
   - {fileID: 1936510781}
   - {fileID: 409100871}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757592344
 GameObject:
@@ -6008,7 +6110,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1046327000
 GameObject:
@@ -7167,6 +7269,7 @@ GameObject:
   - component: {fileID: 1188031290}
   - component: {fileID: 1188031289}
   - component: {fileID: 1188031288}
+  - component: {fileID: 1188031291}
   m_Layer: 5
   m_Name: OrangeCubeTimer
   m_TagString: OrangeTimer
@@ -7206,7 +7309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fbacadb7cd56c4c987dbca6c4783ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  _text: {fileID: 0}
+  redTimeManager: {fileID: 0}
+  timerManager: {fileID: 0}
 --- !u!114 &1188031289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7304,6 +7409,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188031286}
   m_CullTransparentMesh: 1
+--- !u!114 &1188031291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188031286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1212191790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8254,7 +8371,7 @@ RectTransform:
   - {fileID: 1718130553}
   - {fileID: 1046327001}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8279,7 +8396,6 @@ MonoBehaviour:
   musicLayerGreen: {fileID: 448898525}
   musicLayerOrange: {fileID: 96331527}
   musicLayerPurple: {fileID: 1312687851}
-  audioDuration: 15
   timePlayed: 0
 --- !u!1 &1271618403
 GameObject:
@@ -8820,7 +8936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312687849
 GameObject:
@@ -9245,7 +9361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1445465831
 Rigidbody:
@@ -9820,7 +9936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1654985407
 GameObject:
@@ -10538,7 +10654,7 @@ RectTransform:
   - {fileID: 1188031287}
   - {fileID: 1810444138}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10654,6 +10770,7 @@ GameObject:
   - component: {fileID: 1794783470}
   - component: {fileID: 1794783469}
   - component: {fileID: 1794783471}
+  - component: {fileID: 1794783472}
   m_Layer: 5
   m_Name: RedCubeTimer
   m_TagString: RedTimer
@@ -10790,7 +10907,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fbacadb7cd56c4c987dbca6c4783ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  _text: {fileID: 0}
+  redTimeManager: {fileID: 0}
+  timerManager: {fileID: 0}
+--- !u!114 &1794783472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794783467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1810444137
 GameObject:
   m_ObjectHideFlags: 0
@@ -10803,6 +10934,7 @@ GameObject:
   - component: {fileID: 1810444141}
   - component: {fileID: 1810444140}
   - component: {fileID: 1810444139}
+  - component: {fileID: 1810444142}
   m_Layer: 5
   m_Name: PurpleCubeTimer
   m_TagString: PurpleTimer
@@ -10842,7 +10974,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fbacadb7cd56c4c987dbca6c4783ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  _text: {fileID: 0}
+  redTimeManager: {fileID: 0}
+  timerManager: {fileID: 0}
 --- !u!114 &1810444140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10940,6 +11074,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810444137}
   m_CullTransparentMesh: 1
+--- !u!114 &1810444142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810444137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816955715
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,7 +11397,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1931738391
 GameObject:
@@ -12352,7 +12498,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 45, y: 130, z: 90}
 --- !u!114 &2138677394
 MonoBehaviour:

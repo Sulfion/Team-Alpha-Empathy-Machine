@@ -4825,6 +4825,7 @@ GameObject:
   - component: {fileID: 6854325788483292315}
   - component: {fileID: 6854325788483292314}
   - component: {fileID: -4077820971003183753}
+  - component: {fileID: 7673278621181565905}
   m_Layer: 0
   m_Name: RedCube
   m_TagString: RedCube
@@ -4931,14 +4932,24 @@ MonoBehaviour:
   greenCubeObjects: []
   orangeCubeObjects: []
   purpleCubeObjects: []
-  brownCubeObjects: []
   particleSysRed: []
   particleSysBlue: []
   particleSysYellow: []
   particleSysGreen: []
   particleSysOrange: []
   particleSysPurple: []
-  particleSysBrown: []
+--- !u!114 &7673278621181565905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854325788483292309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6854325788906808828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4953,7 +4964,7 @@ GameObject:
   - component: {fileID: 6854325788906808802}
   m_Layer: 0
   m_Name: StepDetector
-  m_TagString: Untagged
+  m_TagString: RedTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

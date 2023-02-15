@@ -5,21 +5,23 @@ using TMPro;
 
 public class WristHUDManager : MonoBehaviour
 {
-    public MusicController musicController;
 
-    private TextMeshProUGUI _text;
+    public TextMeshProUGUI _text;
 
+    public GameObject redTimeManager;
+    //public TimerManager timerManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        musicController = GameObject.FindWithTag("Player").GetComponent<MusicController>();
         _text = GetComponent<TextMeshProUGUI>();
+        //timerManager = GetComponent<TimerManager>(); //the variables here aren't being updated, it is staying at 0
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         UpdateWristText();
+        //Debug.Log(timerManager.redTimer.ToString("f0") + " this is wristHUD red timer");
     }
 
     //this starts/updates the wrist HUD timers each time there is a collision
@@ -27,27 +29,27 @@ public class WristHUDManager : MonoBehaviour
     {
         if (this._text.CompareTag("RedTimer"))
         {
-            _text.text = musicController.redTimer.ToString("f0");
+            //_text.text = timerManager.redTimer.ToString("f0");
         }
         if (this._text.CompareTag("BlueTimer"))
         {
-            _text.text = musicController.blueTimer.ToString("f0");
+            //_text.text = timerManager.blueTimer.ToString("f0");
         }
         if (this._text.CompareTag("YellowTimer"))
         {
-            _text.text = musicController.yellowTimer.ToString("f0");
+            //_text.text = timerManager.yellowTimer.ToString("f0");
         }
         if (this._text.CompareTag("GreenTimer"))
         {
-            _text.text = musicController.greenTimer.ToString("f0");
+            //_text.text = timerManager.greenTimer.ToString("f0");
         }
         if (this._text.CompareTag("OrangeTimer"))
         {
-            _text.text = musicController.orangeTimer.ToString("f0");
+            //_text.text = timerManager.orangeTimer.ToString("f0");
         }
         if (this._text.CompareTag("PurpleTimer"))
         {
-            _text.text = musicController.purpleTimer.ToString("f0");
+            //_text.text = timerManager.purpleTimer.ToString("f0");
         }
     }
 }

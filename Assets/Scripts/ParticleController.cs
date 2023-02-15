@@ -132,7 +132,7 @@ public class ParticleController : MonoBehaviour
     }
 
 
-    //the following seven coroutines stop/restart the assigned colours particles
+    //the following seven coroutines stop/restart the assigned colours particle effects
     //they are divided separately as having them all together led to erroneous behavior
     public IEnumerator StartStopRedParticles()
     {
@@ -197,7 +197,6 @@ public class ParticleController : MonoBehaviour
             }
         }
     }
-
     public IEnumerator StartStopOrangeParticles()
     {
         if (musicController.orangeCheck == true)
@@ -213,7 +212,6 @@ public class ParticleController : MonoBehaviour
             }
         }
     }
-
     public IEnumerator StartStopPurpleParticles()
     {
         if (musicController.purpleCheck == true)

@@ -119,14 +119,12 @@ MonoBehaviour:
   greenCubeObjects: []
   orangeCubeObjects: []
   purpleCubeObjects: []
-  brownCubeObjects: []
   particleSysRed: []
   particleSysBlue: []
   particleSysYellow: []
   particleSysGreen: []
   particleSysOrange: []
   particleSysPurple: []
-  particleSysBrown: []
 --- !u!1 &4881585078380826819
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,9 +137,10 @@ GameObject:
   - component: {fileID: 4881585078380826847}
   - component: {fileID: 4881585078380826816}
   - component: {fileID: 4881585078380826817}
+  - component: {fileID: 9025097299460067617}
   m_Layer: 0
   m_Name: StepDetector
-  m_TagString: Untagged
+  m_TagString: OrangeTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,6 +223,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9025097299460067617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881585078380826819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8523620623936510428
 GameObject:
   m_ObjectHideFlags: 0
