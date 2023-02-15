@@ -7,48 +7,64 @@ public class WristHUDManager : MonoBehaviour
 {
 
     public TextMeshProUGUI _text;
-
-    //public TimerManager timerManager;
+    
+    private static float redSecondsLeft;
+    private static float blueSecondsLeft;
+    private static float yellowSecondsLeft;
+    private static float greenSecondsLeft;
+    private static float orangeSecondsLeft;
+    private static float purpleSecondsLeft;
 
     // Start is called before the first frame update
     void Start()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        //timerManager = GetComponent<TimerManager>(); //the variables here aren't being updated, it is staying at 0
+        
     }
 
     private void Update()
     {
+        GetSecondsLeftFromTimers();
         UpdateWristText();
-        //Debug.Log(timerManager.redTimer.ToString("f0") + " this is wristHUD red timer");
     }
+
+    public void GetSecondsLeftFromTimers()
+    {
+        redSecondsLeft = TimerManager.redSecondsLeft;
+        blueSecondsLeft = TimerManager.blueSecondsLeft;
+        yellowSecondsLeft = TimerManager.yellowSecondsLeft;
+        greenSecondsLeft = TimerManager.greenSecondsLeft;
+        orangeSecondsLeft = TimerManager.orangeSecondsLeft;
+        purpleSecondsLeft = TimerManager.purpleSecondsLeft;
+    }
+
 
     //this starts/updates the wrist HUD timers each time there is a collision
     private void UpdateWristText()
     {
         if (this._text.CompareTag("RedTimer"))
         {
-            //_text.text = timerManager.redTimer.ToString("f0");
+            _text.text = redSecondsLeft.ToString("f0");
         }
         if (this._text.CompareTag("BlueTimer"))
         {
-            //_text.text = timerManager.blueTimer.ToString("f0");
+            _text.text = blueSecondsLeft.ToString("f0");
         }
         if (this._text.CompareTag("YellowTimer"))
         {
-            //_text.text = timerManager.yellowTimer.ToString("f0");
+            _text.text = yellowSecondsLeft.ToString("f0");
         }
         if (this._text.CompareTag("GreenTimer"))
         {
-            //_text.text = timerManager.greenTimer.ToString("f0");
+            _text.text = greenSecondsLeft.ToString("f0");
         }
         if (this._text.CompareTag("OrangeTimer"))
         {
-            //_text.text = timerManager.orangeTimer.ToString("f0");
+            _text.text = orangeSecondsLeft.ToString("f0");
         }
         if (this._text.CompareTag("PurpleTimer"))
         {
-            //_text.text = timerManager.purpleTimer.ToString("f0");
+            _text.text = purpleSecondsLeft.ToString("f0");
         }
     }
 }

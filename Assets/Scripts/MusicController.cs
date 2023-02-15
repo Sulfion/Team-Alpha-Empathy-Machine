@@ -17,7 +17,7 @@ public class MusicController : MonoBehaviour
     [System.NonSerialized]
     public WaitForSeconds audioDurationWait = new WaitForSeconds(15.0f);
 
-    public float longestTimePlayed;
+    //public float longestTimePlayed;
 
     //these checks are passed to particle controller
     [System.NonSerialized]
@@ -48,7 +48,7 @@ public class MusicController : MonoBehaviour
     private Coroutine purpleTimerRoutine;
 
     private float[] timeComparisonArray;
-    private float greatestValue;
+    public float greatestValue;
 
     private float redTotalTime = 0f;
     private float blueTotalTime = 0f;
@@ -82,6 +82,7 @@ public class MusicController : MonoBehaviour
         CheckTimesFindGreatest();
     }
 
+    //adds individual timers to array and find the greatest value, assign to variable
     public void CheckTimesFindGreatest()
     {
         timeComparisonArray.SetValue(value: redTotalTime, index: 0);

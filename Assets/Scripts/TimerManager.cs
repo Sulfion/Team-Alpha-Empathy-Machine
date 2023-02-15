@@ -7,17 +7,17 @@ using UnityEngine;
 public class TimerManager : MonoBehaviour
 {
     [System.NonSerialized]
-    public float redSecondsLeft;
+    public static float redSecondsLeft;
     [System.NonSerialized]
-    public float blueSecondsLeft;
+    public static float blueSecondsLeft;
     [System.NonSerialized]
-    public float yellowSecondsLeft;
+    public static float yellowSecondsLeft;
     [System.NonSerialized]
-    public float greenSecondsLeft;
+    public static float greenSecondsLeft;
     [System.NonSerialized]
-    public float orangeSecondsLeft;
+    public static float orangeSecondsLeft;
     [System.NonSerialized]
-    public float purpleSecondsLeft;
+    public static float purpleSecondsLeft;
 
     //each coroutine has a unique ID and must be stored in order to be stopped
     private Coroutine redTimerRoutine;
