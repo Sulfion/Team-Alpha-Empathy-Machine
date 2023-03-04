@@ -4964,7 +4964,7 @@ GameObject:
   - component: {fileID: 6854325788906808802}
   m_Layer: 0
   m_Name: StepDetector
-  m_TagString: RedTimer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

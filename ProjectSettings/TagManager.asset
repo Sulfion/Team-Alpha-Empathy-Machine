@@ -23,6 +23,13 @@ TagManager:
   - GreenTimer
   - OrangeTimer
   - PurpleTimer
+  - TimerManager
+  - RedFind
+  - BlueFind
+  - YellowFind
+  - GreenFind
+  - OrangeFind
+  - PurpleFind
   layers:
   - Default
   - TransparentFX

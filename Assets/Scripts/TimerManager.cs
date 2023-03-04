@@ -1,23 +1,21 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    [System.NonSerialized]
-    public static float redSecondsLeft;
-    [System.NonSerialized]
-    public static float blueSecondsLeft;
-    [System.NonSerialized]
-    public static float yellowSecondsLeft;
-    [System.NonSerialized]
-    public static float greenSecondsLeft;
-    [System.NonSerialized]
-    public static float orangeSecondsLeft;
-    [System.NonSerialized]
-    public static float purpleSecondsLeft;
+    public TextMeshProUGUI _text;
+
+    //public static float redSecondsLeft = 0;
+    public float redSecondsLeft = 0;
+    private float blueSecondsLeft;
+    private float yellowSecondsLeft;
+    private float greenSecondsLeft;
+    private float orangeSecondsLeft;
+    private float purpleSecondsLeft;
 
     //each coroutine has a unique ID and must be stored in order to be stopped
     private Coroutine redTimerRoutine;
@@ -27,10 +25,19 @@ public class TimerManager : MonoBehaviour
     private Coroutine orangeTimerRoutine;
     private Coroutine purpleTimerRoutine;
 
+    private void Start()
+    {
+        _text = GetComponent<TextMeshProUGUI>();
+        //UpdateWristText();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(redSecondsLeft.ToString("f0") + " this is TimerManager red timer");
+        UpdateWristText();
+        Debug.Log(redSecondsLeft.ToString("f0") + " this is TimerManager red timer");
+        //Debug.Log(blueSecondsLeft.ToString("f0") + " this is TimerManager blue timer");
+        //Debug.Log(yellowSecondsLeft.ToString("f0") + " this is TimerManager yellow timer");
     }
 
     //check if another routine for the colour has been started
@@ -40,13 +47,13 @@ public class TimerManager : MonoBehaviour
     {
         if (this.gameObject.CompareTag("RedCube"))
         {
-            if (redTimerRoutine != null)
+            if (this.redTimerRoutine != null)
             {
                 StopCoroutine(redTimerRoutine);
             }
             redTimerRoutine = StartCoroutine(RedTimer());
         }
-        if (this.gameObject.CompareTag("BlueCube"))
+        if (gameObject.CompareTag("BlueCube"))
         {
             if (blueTimerRoutine != null)
             {
@@ -144,4 +151,43 @@ public class TimerManager : MonoBehaviour
             purpleSecondsLeft--;
         }
     }
+
+    private void UpdateWristText()
+    {
+        if (_text == null)
+        {
+            return;
+        }
+        if (this._text.CompareTag("RedTimer"))
+        {
+            this._text.text = redSecondsLeft.ToString("f0");
+        }
+        if (this._text.CompareTag("BlueTimer"))
+        {
+            _text.text = blueSecondsLeft.ToString("f0");
+        }
+        if (this._text.CompareTag("YellowTimer"))
+        {
+            _text.text = yellowSecondsLeft.ToString("f0");
+        }
+        if (this._text.CompareTag("GreenTimer"))
+        {
+            _text.text = greenSecondsLeft.ToString("f0");
+        }
+        if (this._text.CompareTag("OrangeTimer"))
+        {
+            _text.text = orangeSecondsLeft.ToString("f0");
+        }
+        if (this._text.CompareTag("PurpleTimer"))
+        {
+            _text.text = purpleSecondsLeft.ToString("f0");
+        }
+    }
+
+    //private void OnBecameVisible()
+    //{
+
+    //}
+
+
 }
