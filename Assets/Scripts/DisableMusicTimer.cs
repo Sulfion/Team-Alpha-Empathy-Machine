@@ -42,42 +42,42 @@ public class DisableMusicTimer : MonoBehaviour
     //after a certain amount of time, disable a cube by colour
     public void RemoveCubeAfterTime()
     {
-        if (timer > 5f)
+        if (timer > 30f)
         {
             for(int i = 0; i < redCubes.Length; i++)
             {
                 redCubes[i].gameObject.SetActive(false);
             }
         }
-        if (timer > 10f)
+        if (timer > 60f)
         {
             for (int i = 0; i < blueCubes.Length; i++)
             {
                 blueCubes[i].gameObject.SetActive(false);
             }
         }
-        if (timer > 15f)
+        if (timer > 90f)
         {
             for (int i = 0; i < yellowCubes.Length; i++)
             {
                 yellowCubes[i].gameObject.SetActive(false);
             }
         }
-        if (timer > 20f)
+        if (timer > 120f)
         {
             for (int i = 0; i < greenCubes.Length; i++)
             {
                 greenCubes[i].gameObject.SetActive(false);
             }
         }
-        if (timer > 25f)
+        if (timer > 150f)
         {
             for (int i = 0; i < orangeCubes.Length; i++)
             {
                 orangeCubes[i].gameObject.SetActive(false);
             }
         }
-        if (timer > 30f)
+        if (timer > 180f)
         {
             for (int i = 0; i < purpleCubes.Length; i++)
             {

@@ -35,7 +35,7 @@ public class TimerManager : MonoBehaviour
     void Update()
     {
         UpdateWristText();
-        Debug.Log(redSecondsLeft.ToString("f0") + " this is TimerManager red timer");
+        //Debug.Log(redSecondsLeft.ToString("f0") + " this is TimerManager red timer");
         //Debug.Log(blueSecondsLeft.ToString("f0") + " this is TimerManager blue timer");
         //Debug.Log(yellowSecondsLeft.ToString("f0") + " this is TimerManager yellow timer");
     }
