@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4881585077216084380}
   - component: {fileID: 4603882340250326168}
   - component: {fileID: 8805182291988594814}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: OrangeCube
   m_TagString: OrangeCube
   m_Icon: {fileID: 0}
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  redSecondsLeft: 0
 --- !u!1 &4881585078380826819
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ GameObject:
   - component: {fileID: 4881585078380826847}
   - component: {fileID: 4881585078380826816}
   - component: {fileID: 4881585078380826817}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: StepDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +248,7 @@ GameObject:
   - component: {fileID: 4513158531783722278}
   - component: {fileID: 7228298080775050401}
   - component: {fileID: 1874293348462240397}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

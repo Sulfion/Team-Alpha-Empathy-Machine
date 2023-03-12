@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1250526897291462829}
   - component: {fileID: -3656628498504071608}
   - component: {fileID: 2595994940881880136}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: YellowCube
   m_TagString: YellowCube
   m_Icon: {fileID: 0}
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  redSecondsLeft: 0
 --- !u!1 &1250526897599419853
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ GameObject:
   - component: {fileID: 1250526897599419849}
   - component: {fileID: 1250526897599419848}
   - component: {fileID: 1250526897599419855}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: StepDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +248,7 @@ GameObject:
   - component: {fileID: 2432130602717881929}
   - component: {fileID: 1100891815706725028}
   - component: {fileID: 3458348530549163890}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

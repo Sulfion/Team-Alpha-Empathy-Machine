@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3051816242854562833}
   - component: {fileID: 1113827801777378888}
   - component: {fileID: 8831844030156891549}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 1965842633048275399}
   - component: {fileID: -5580513045296030737}
   - component: {fileID: 2915295634115998304}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: BlueCube
   m_TagString: BlueCube
   m_Icon: {fileID: 0}
@@ -4950,6 +4950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  redSecondsLeft: 0
 --- !u!1 &1965842634334113128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,7 +4964,7 @@ GameObject:
   - component: {fileID: 1965842634334113108}
   - component: {fileID: 1965842634334113131}
   - component: {fileID: 1965842634334113130}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: StepDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}

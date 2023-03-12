@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2293312495932366763}
   - component: {fileID: -7576259011809902085}
   - component: {fileID: 4140592350030001771}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: GreenCube
   m_TagString: GreenCube
   m_Icon: {fileID: 0}
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  redSecondsLeft: 0
 --- !u!1 &2293312497797519932
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ GameObject:
   - component: {fileID: 2293312497797519872}
   - component: {fileID: 2293312497797519935}
   - component: {fileID: 2293312497797519934}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: StepDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +248,7 @@ GameObject:
   - component: {fileID: 776210161673692500}
   - component: {fileID: 4066338643836962842}
   - component: {fileID: 7278646893823986296}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

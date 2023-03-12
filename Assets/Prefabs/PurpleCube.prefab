@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 640976965026704387}
   - component: {fileID: 8753110258865030944}
   - component: {fileID: 3068947395795622336}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 5441222794761420316}
   - component: {fileID: 5441222794761420319}
   - component: {fileID: 5441222794761420318}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: StepDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4923,7 +4923,7 @@ GameObject:
   - component: {fileID: 5441222795631469697}
   - component: {fileID: 1749179060815274436}
   - component: {fileID: 7830278613231911872}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: PurpleCube
   m_TagString: PurpleCube
   m_Icon: {fileID: 0}
@@ -5047,3 +5047,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8181043cc67bdd4bba470e73c445cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  redSecondsLeft: 0
