@@ -1,7 +1,7 @@
 # Team-Alpha-Empathy-Machine
 # Group_Assignment_6
 
-## <p align="center"> Salmon Run </p> 
+## <p align="center"> Music Fade </p> 
 A proof of concept for an empathy machine to illicit empathy for the deaf, made for Swansea University.  
 Experience the gradual loss of hearing through music in this proof of concept.
 
