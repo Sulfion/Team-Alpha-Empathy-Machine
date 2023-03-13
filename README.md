@@ -47,8 +47,8 @@ https://user-images.githubusercontent.com/115562974/224823725-d90665a6-a0d9-4bdb
 
 #### Credits:  
 
-People
-Seb for his help with the instantiator script
+People  
+Seb for his help with the instantiator script/collision issues
 
 Unity Asset Store
 * pixel low poly minimal studio apartment
