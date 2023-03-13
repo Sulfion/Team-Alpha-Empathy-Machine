@@ -19,7 +19,7 @@ https://youtu.be/h56oM-GCikw
 https://user-images.githubusercontent.com/115562974/224823725-d90665a6-a0d9-4bdb-9fce-b4e6c2c09e67.mp4
 
 #### Website:
-Home | Team Alpha (22477547.wixsite.com)
+https://22477547.wixsite.com/team-alpha
 
 
 #### Features:
