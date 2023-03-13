@@ -82,9 +82,9 @@ public class ParticleController : MonoBehaviour
     }
 
     //check which cube has collided with and run disable method for that colour of cube
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             if (this.gameObject.tag == "RedCube")
             {

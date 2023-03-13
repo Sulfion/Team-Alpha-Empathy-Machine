@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4881585077216084377}
   - component: {fileID: 4881585077216084378}
   - component: {fileID: 4881585077216084379}
-  - component: {fileID: 4881585077216084380}
   - component: {fileID: 4603882340250326168}
   - component: {fileID: 8805182291988594814}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: OrangeCube
   m_TagString: OrangeCube
   m_Icon: {fileID: 0}
@@ -88,19 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4881585077216084380
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4881585077216084381}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4603882340250326168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,9 +138,9 @@ GameObject:
   - component: {fileID: 4881585078380826847}
   - component: {fileID: 4881585078380826816}
   - component: {fileID: 4881585078380826817}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: StepDetector
-  m_TagString: Untagged
+  m_TagString: OrangeCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +218,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4881585078380826819}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -248,7 +234,7 @@ GameObject:
   - component: {fileID: 4513158531783722278}
   - component: {fileID: 7228298080775050401}
   - component: {fileID: 1874293348462240397}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

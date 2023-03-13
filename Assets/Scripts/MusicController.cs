@@ -97,9 +97,9 @@ public class MusicController : MonoBehaviour
 
     //start & stop a coroutine for each colour, it manages audio and an individual timer
     //also sync all audio to the longest a colour has played
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("RedCube"))
+        if (other.tag == "RedCube")
         {
             musicLayerRed.time = greatestValue; //sync the audio using most played sound
             if (redAudioRoutine != null)
@@ -113,7 +113,7 @@ public class MusicController : MonoBehaviour
             }
             redTimerRoutine = StartCoroutine(RedTimer());
         }
-        if (collision.gameObject.CompareTag("BlueCube"))
+        if (other.tag == "BlueCube")
         {
             musicLayerBlue.time = greatestValue;
             if (blueAudioRoutine != null)
@@ -127,7 +127,7 @@ public class MusicController : MonoBehaviour
             }
             blueTimerRoutine = StartCoroutine(BlueTimer());
         }
-        if (collision.gameObject.CompareTag("YellowCube"))
+        if (other.tag == "YellowCube")
         {
             musicLayerYellow.time = greatestValue;
             if (yellowAudioRoutine != null)
@@ -141,7 +141,7 @@ public class MusicController : MonoBehaviour
             }
             yellowTimerRoutine = StartCoroutine(YellowTimer());
         }
-        if (collision.gameObject.CompareTag("GreenCube"))
+        if (other.tag == "GreenCube")
         {
             musicLayerGreen.time = greatestValue;
             if (greenAudioRoutine != null)
@@ -155,7 +155,7 @@ public class MusicController : MonoBehaviour
             }
             greenTimerRoutine = StartCoroutine(GreenTimer());
         }
-        if (collision.gameObject.CompareTag("OrangeCube"))
+        if (other.tag == "OrangeCube")
         {
             musicLayerOrange.time = greatestValue;
             if (orangeAudioRoutine != null)
@@ -169,7 +169,7 @@ public class MusicController : MonoBehaviour
             }
             orangeTimerRoutine = StartCoroutine(OrangeTimer());
         }
-        if (collision.gameObject.CompareTag("PurpleCube"))
+        if (other.tag == "PurpleCube")
         {
             musicLayerPurple.time = greatestValue;
             if (purpleAudioRoutine != null)
