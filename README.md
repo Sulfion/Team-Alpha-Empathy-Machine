@@ -13,6 +13,10 @@ Experience the gradual loss of hearing through music in this proof of concept.
 
 
 #### Video:
+https://youtu.be/h56oM-GCikw
+
+
+https://user-images.githubusercontent.com/115562974/224823725-d90665a6-a0d9-4bdb-9fce-b4e6c2c09e67.mp4
 
 
 
@@ -43,8 +47,8 @@ Experience the gradual loss of hearing through music in this proof of concept.
 
 #### Credits:  
 
-People
-Seb for his help with the instantiator script
+People  
+* Seb for his help with the instantiator script/collision issues
 
 Unity Asset Store
 * pixel low poly minimal studio apartment
