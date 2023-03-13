@@ -25,6 +25,7 @@ public class ParticleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicController = GameObject.FindWithTag("Player").GetComponent<MusicController>();
         StartCoroutine(FindGameObjectsAfterInstantiated());
     }
 
@@ -32,8 +33,6 @@ public class ParticleController : MonoBehaviour
     public IEnumerator FindGameObjectsAfterInstantiated()
     {
         yield return new WaitForSeconds(6.0f);
-
-        musicController = GameObject.FindWithTag("Player").GetComponent<MusicController>();
 
         redCubeObjects = GameObject.FindGameObjectsWithTag("RedCube");
         blueCubeObjects = GameObject.FindGameObjectsWithTag("BlueCube");
